@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button";
 
 const MaintenanceContent = () => {
     return( 
@@ -17,6 +18,7 @@ const MaintenanceContent = () => {
                         <p className="text-md text-justify leading-7 text-stone-800">
                         Saat ini website LCTIP sedang dalam perbaikan. We'll be back!
                         </p>
+                        <Button name="Back" link="/"/>
                     </div>
                 </div>
             </div>

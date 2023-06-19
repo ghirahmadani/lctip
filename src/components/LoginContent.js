@@ -13,7 +13,7 @@ const LoginContent = () => {
             </Link>
             
             <div className="w-full bg-white rounded-lg max-w-md">
-                <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <div className="p-6 space-y-4">
                     <h1 className="text-3xl text-left fredoka font-bold text-stone-900 pb-4">User login</h1>
                     <form className="space-y-4 md:space-y-6" action="#">
                     <div>

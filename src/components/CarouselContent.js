@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Carousel } from "flowbite-react";
+
 const CarouselContent = (props) => {
   return (
     <div className="w-[480px] h-72 rounded-lg overflow-hidden">

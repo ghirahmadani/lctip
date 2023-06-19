@@ -2,7 +2,7 @@ import './App.css';
 import Navbar from './components/Navbar'
 import Footer from './components/Footer';
 
-import {Routes, Route } from 'react-router-dom';
+import {Routes, Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -18,6 +18,8 @@ import EventsContent from './components/EventsContent';
 import TryOutNavbar from './components/TryOutNavbar';
 
 import Dashboard from './pages/Dashboard'
+import RootLayout from './layouts/RootLayout';
+import TestLayout from './layouts/TestLayout';
 
 const App = () => {
   const { pathname } = useLocation();
@@ -26,28 +28,33 @@ const App = () => {
     window.scrollTo({top: 0, behavior: "smooth"});
   }, [pathname]);
 
-  return (
-      <div className="App">
-        {
-          pathname !== "/tryout" ? <Navbar/> : <TryOutNavbar/>
-        }
-          <Routes>
-            <Route path='/' element={<Main/>} />
-            <Route path='/events' element={<EventsContent/>} />
-            <Route path='/events/competition' element={<Competition/>} />
-            <Route path='/events/seminar' element={<Seminar/>} />
-            <Route path='/events/challenge' element={<Crossword/>} />
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route>
+        <Route path ='/' element={<RootLayout/>}>
+            <Route index element={<Main/>} />
+            
+            <Route path='events' element={<EventsContent/>}>
+              <Route path='competition' element={<Competition/>} />
+              <Route path='seminar' element={<Seminar/>} />
+              <Route path='challenge' element={<Crossword/>} />
+            </Route>
+
             <Route path='/faq' element={<FAQ/>} />
             <Route path='/registration' element={<Register/>} />
             <Route path='/login' element={<Login/>} />
-            <Route path='*' element={<Maintenance/>} />
+        </Route>
+        <Route path='/tryout' element={<TestLayout/>}>
+          <Route path='dashboard' element={<Dashboard/>} />
+        </Route>
 
-            <Route path='/tryout' element={<Dashboard/>} />
-          </Routes>
-        {
-          pathname !== "/tryout" ? <Footer/> : <></>
-        }
-      </div>
+        <Route path='*' element={<Maintenance/>} />
+      </Route>
+    )
+  )
+
+  return (
+    <RouterProvider router={router} />
   );
 }
 

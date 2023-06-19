@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="grid grid-cols-3 pb-10">
           <div className="order-1">
             {/* Logo */}
-            <Link to="/" className="flex justify-center items-start hover:scale-105 transition duration-300 delay-150">
+            <Link to="/" className="flex justify-center items-start hover:scale-105 transition duration-300 delay-150" onClick={() => window.scrollTo({top: 0, behavior: "smooth"})}>
               <img
                 src={Logo}
                 className="w-48 mb-4"
