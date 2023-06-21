@@ -1,7 +1,8 @@
 import React from "react";
 import Button from "./Button";
+import { Link } from "react-router-dom";
 
-const MaintenanceContent = () => {
+const NotFound = () => {
     return( 
         <div className="container w-full mx-auto">
             <div className="container w-9/12 mx-auto">
@@ -18,7 +19,11 @@ const MaintenanceContent = () => {
                         <p className="text-md text-justify leading-7 text-stone-800">
                         Saat ini website LCTIP sedang dalam perbaikan. We'll be back!
                         </p>
-                        <Button name="Back" link="/"/>
+                        <Link to='/'>
+                            <div className="flex items-start mt-6">
+                            <Button name="Back"/>
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -26,4 +31,4 @@ const MaintenanceContent = () => {
     )
 }
 
-export default MaintenanceContent;
+export default NotFound;

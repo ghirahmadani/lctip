@@ -1,10 +1,10 @@
 import React from 'react'
-import MaintenanceContent from '../components/MaintenanceContent'
+import NotFound from '../components/NotFound'
 
 const Maintenance = () => {
   return (
     <>
-        <MaintenanceContent/>
+        <NotFound/>
     </>
   )
 }
