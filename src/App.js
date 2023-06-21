@@ -31,7 +31,7 @@ const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route>
-        <Route path ='/' element={<RootLayout/>}>
+        <Route path ='/lctip' element={<RootLayout/>}>
             <Route index element={<Main/>} />
             
             <Route path='events' element={<EventsContent/>}>
