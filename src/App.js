@@ -15,7 +15,6 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Maintenance from './pages/Maintenance';
 import EventsContent from './components/EventsContent';
-import TryOutNavbar from './components/TryOutNavbar';
 
 import Dashboard from './pages/Dashboard'
 import RootLayout from './layouts/RootLayout';
@@ -31,7 +30,7 @@ const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route>
-        <Route path ='/lctip' element={<RootLayout/>}>
+        <Route path ='/' element={<RootLayout/>}>
             <Route index element={<Main/>} />
             
             <Route path='events' element={<EventsContent/>}>
