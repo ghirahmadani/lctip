@@ -2,7 +2,7 @@
   "name": "lctip-apps",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ghirahmadani.github.io/",
+  "homepage": "https://ghirahmadani.github.io/lctip",
   "dependencies": {
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-popover": "1.0.6",
