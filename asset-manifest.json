@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/lctip/static/css/main.74eeb22d.css",
-    "main.js": "/lctip/static/js/main.d92aebba.js",
+    "main.css": "/lctip/static/css/main.356152e8.css",
+    "main.js": "/lctip/static/js/main.792d2034.js",
     "static/media/2.JPG": "/lctip/static/media/2.177ade274e71becdf2b4.JPG",
     "static/media/logo.png": "/lctip/static/media/logo.b6c0e82919318a70a534.png",
     "static/media/organizer.png": "/lctip/static/media/organizer.b6c0e82919318a70a534.png",
@@ -9,11 +9,11 @@
     "static/media/3.JPG": "/lctip/static/media/3.bde888dc3517fe6ae9b3.JPG",
     "static/media/logolctip.png": "/lctip/static/media/logolctip.0a8ae9eccfb1fbde3968.png",
     "index.html": "/lctip/index.html",
-    "main.74eeb22d.css.map": "/lctip/static/css/main.74eeb22d.css.map",
-    "main.d92aebba.js.map": "/lctip/static/js/main.d92aebba.js.map"
+    "main.356152e8.css.map": "/lctip/static/css/main.356152e8.css.map",
+    "main.792d2034.js.map": "/lctip/static/js/main.792d2034.js.map"
   },
   "entrypoints": [
-    "static/css/main.74eeb22d.css",
-    "static/js/main.d92aebba.js"
+    "static/css/main.356152e8.css",
+    "static/js/main.792d2034.js"
   ]
 }
