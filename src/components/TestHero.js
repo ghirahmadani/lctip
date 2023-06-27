@@ -16,7 +16,7 @@ const TestHero = () => {
           >
             <div className="flex justify-center items-center gap-4">
               <p>
-                Jadwal try out akan dilaksanakan pukul 15:00.
+                Jadwal try out akan dilaksanakan pada pukul 3:00 PM
               </p>
             </div>
           </Alert>
@@ -97,7 +97,7 @@ const TestHero = () => {
           <fieldset className="mb-10">
             <div className="flex items-center mb-4">
                 <input defaultChecked id="checkbox-1" type="checkbox" defaultValue className="w-4 h-4 text-fuchsia-600 bg-gray-100 border-gray-300 rounded-lg focus:ring-fuchsia-400 focus:ring-2" />
-                <label htmlFor="checkbox-1" className="ml-2 text-sm font-medium text-gray-900">dengan menekan tombol ini anda telah setuju dengan seluruh aturan try out.</label>
+                <label htmlFor="checkbox-1" className="ml-2 text-sm font-medium text-gray-900">dengan menekan tombol ini anda telah setuju dengan seluruh <span className="font-bold">aturan try out.</span></label>
             </div>
           </fieldset>
           <div className="flex items-start my-10">

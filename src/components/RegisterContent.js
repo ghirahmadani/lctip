@@ -14,7 +14,7 @@ const RegisterContent = () => {
                         </div>
                         </div>
                         <div className="text-center">
-                        <h1 className="text-6xl fredoka font-bold text-stone-900">
+                        <h1 className="text-[2rem] sm:text-4xl md:text-5xl lg:text-5xl fredoka font-bold text-stone-900">
                             Registration<br></br>Form
                         </h1>
                         <div className="mt-10 flex items-center justify-center gap-x-6">
@@ -48,7 +48,7 @@ const RegisterContent = () => {
             {/* Team */}
             <div className="container w-9/12 mx-auto">
                 <form className="border-b my-10 py-10">
-                    <h1 className="text-3xl text-left fredoka font-bold text-stone-900 pb-4 mb-8">Data Tim</h1>
+                    <h1 className="text-2xl lg:text-3xl text-left fredoka font-bold text-stone-900 pb-4 mb-8">Data Tim</h1>
                     <div className="mb-6">
                         <label htmlFor="teamName" className="block mb-2 text-sm text-left font-medium text-gray-900">Nama Tim</label>
                         <input type="text" id="teamName" name="teamName" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
@@ -85,7 +85,7 @@ const RegisterContent = () => {
                 </form>
                 {/* Mentor */}
                 <form className="border-b my-10 py-10">
-                    <h1 className="text-3xl text-left fredoka font-bold text-stone-900 pb-4 mb-8">Data Individu Pembimbing</h1>
+                    <h1 className="text-2xl lg:text-3xl text-left fredoka font-bold text-stone-900 pb-4 mb-8">Data Individu Pembimbing</h1>
                     <div className="mb-6">
                         <label htmlFor="mentorName" className="block mb-2 text-sm text-left font-medium text-gray-900">Nama</label>
                         <input type="text" id="mentorName" name="mentorName" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
@@ -105,12 +105,12 @@ const RegisterContent = () => {
                     <div className="mb-6">
                         <label htmlFor="mentorPics" className="block mb-2 text-sm text-left font-medium text-gray-900">Foto Formal</label>
                         <input className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" id="mentorPics" type="file" />
-                        <div className="mt-2 text-sm text-left text-gray-500 dark:text-gray-300" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png</div>
+                        <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500 dark:text-gray-300" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png</div>
                     </div>
                 </form>
                 {/* Leader */}
                 <form className="border-b my-10 py-10">
-                    <h1 className="text-3xl text-left fredoka font-bold text-stone-900 pb-4 mb-8">Data Individu Ketua Tim</h1>
+                    <h1 className="text-2xl lg:text-3xl text-left fredoka font-bold text-stone-900 pb-4 mb-8">Data Individu Ketua Tim</h1>
                     <div className="mb-6">
                         <label htmlFor="leadUsername" className="block mb-2 text-sm text-left font-medium text-gray-900">Username</label>
                         <input type="text" id="leadUsername" name="leadUsername" autoComplete="username" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
@@ -138,17 +138,17 @@ const RegisterContent = () => {
                     <div className="mb-6">
                         <label htmlFor="leadPicsFormal" className="block mb-2 text-sm text-left font-medium text-gray-900">Foto Formal</label>
                         <input id="leadPicsFormal" name="leadPicsFormal" className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" type="file" />
-                        <div className="mt-2 text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png</div>
+                        <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png</div>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="leadPicsCard" className="block mb-2 text-sm text-left font-medium text-gray-900">Foto atau Scan dari Kartu Pelajar atau KTP</label>
                         <input id="leadPicsCard" name="leadPicsCard" className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" type="file" />
-                        <div className="mt-2 text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png .pdf</div>
+                        <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png .pdf</div>
                     </div>
                 </form>
                 {/* Member 1 */}
                 <form className="border-b my-10 py-10">
-                    <h1 className="text-3xl text-left fredoka font-bold text-stone-900 pb-4 mb-8">Data Individu Anggota I</h1>
+                    <h1 className="text-2xl lg:text-3xl text-left fredoka font-bold text-stone-900 pb-4 mb-8">Data Individu Anggota I</h1>
                     <div className="mb-6">
                         <label htmlFor="memberOneUsername" className="block mb-2 text-sm text-left font-medium text-gray-900">Username</label>
                         <input type="text" id="memberOneUsername" name="memberOneUsername" autoComplete="username" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
@@ -176,17 +176,17 @@ const RegisterContent = () => {
                     <div className="mb-6">
                         <label htmlFor="memberOnePicsFormal" className="block mb-2 text-sm text-left font-medium text-gray-900">Foto Formal</label>
                         <input id="memberOnePicsFormal" name="memberOnePicsFormal" className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" type="file" />
-                        <div className="mt-2 text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png</div>
+                        <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png</div>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="memberOnePicsCard" className="block mb-2 text-sm text-left font-medium text-gray-900">Foto atau Scan dari Kartu Pelajar atau KTP</label>
                         <input id="memberOnePicsCard" name="memberOnePicsCard" className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" type="file" />
-                        <div className="mt-2 text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png .pdf</div>
+                        <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png .pdf</div>
                     </div>
                 </form>
                 {/* Member 2 */}
                 <form className="border-b my-10 py-10">
-                    <h1 className="text-3xl text-left fredoka font-bold text-stone-900 pb-4 mb-8">Data Individu Anggota II</h1>
+                    <h1 className="text-2xl lg:text-3xl text-left fredoka font-bold text-stone-900 pb-4 mb-8">Data Individu Anggota II</h1>
                     <div className="mb-6">
                         <label htmlFor="memberTwoUsername" className="block mb-2 text-sm text-left font-medium text-gray-900">Username</label>
                         <input type="text" id="memberTwoUsername" name="memberTwoUsername" autoComplete="username" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
@@ -214,37 +214,37 @@ const RegisterContent = () => {
                     <div className="mb-6">
                         <label htmlFor="memberTwoPicsFormal" className="block mb-2 text-sm text-left font-medium text-gray-900">Foto Formal</label>
                         <input id="memberTwoPicsFormal" name="memberTwoPicsFormal" className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" type="file" />
-                        <div className="mt-2 text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png</div>
+                        <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png</div>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="memberTwoPicsCard" className="block mb-2 text-sm text-left font-medium text-gray-900">Foto atau Scan dari Kartu Pelajar atau KTP</label>
                         <input id="memberTwoPicsCard" name="memberTwoPicsCard" className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" type="file" />
-                        <div className="mt-2 text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png .pdf</div>
+                        <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png .pdf</div>
                     </div>
                 </form>
                 {/* Other */}
                 <form className="border-b my-10 py-10">
-                    <h1 className="text-3xl text-left fredoka font-bold text-stone-900 pb-4 mb-8">Data Pendukung</h1>
+                    <h1 className="text-2xl lg:text-3xl text-left fredoka font-bold text-stone-900 pb-4 mb-8">Data Pendukung</h1>
                     <div className="mb-6">
                             <label htmlFor="paymentPics" className="block mb-2 text-sm text-left font-medium text-gray-900">Bukti Pembayaran</label>
                             <input id="paymentPics" name="paymentPics" className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" type="file" />
-                            <div className="mt-2 text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png</div>
+                            <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png</div>
                         </div>
                         <div className="mb-6">
                             <label htmlFor="schoolPics" className="block mb-2 text-sm text-left font-medium text-gray-900">Surat Utusan Sekolah</label>
                             <input id="schoolPics" name="schoolPics" className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" type="file" />
-                            <div className="mt-2 text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png .pdf</div>
+                            <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png .pdf</div>
                         </div>
                 </form>
                 <fieldset className="mb-10">
                     <div className="flex items-center mb-4">
                         <input defaultChecked id="checkbox-1" type="checkbox" defaultValue className="w-4 h-4 text-fuchsia-600 bg-gray-100 border-gray-300 rounded-lg focus:ring-fuchsia-400 focus:ring-2" />
-                        <label htmlFor="checkbox-1" className="ml-2 text-sm font-medium text-gray-900">dengan menekan tombol ini anda telah setuju bahwa semua data yang dimasukan sudah benar.</label>
+                        <label htmlFor="checkbox-1" className="ml-2 text-[0.6rem] lg:text-sm font-medium text-left text-gray-900">dengan menekan tombol ini anda telah setuju bahwa semua data yang dimasukan sudah benar.</label>
                     </div>
 
                     <div className="flex items-center mb-4">
                         <input id="checkbox-2" type="checkbox" defaultValue className="w-4 h-4 text-fuchsia-600 bg-gray-100 border-gray-300 rounded-lg focus:ring-fuchsia-400 focus:ring-2" />
-                        <label htmlFor="checkbox-2" className="ml-2 text-sm font-medium text-gray-900">dengan menekan tombol ini anda telah setuju mendaftar sebagai peserta LCTIP XXXI dan mematuhi syarat dan ketentuan yang berlaku.</label>
+                        <label htmlFor="checkbox-2" className="ml-2 text-[0.6rem] lg:text-sm font-medium text-left text-gray-900">dengan menekan tombol ini anda telah setuju mendaftar sebagai peserta LCTIP XXXI dan mematuhi syarat dan ketentuan yang berlaku.</label>
                     </div>
                     <div className="flex items-start my-20">
                         <Button name="Submit"/>

@@ -1,16 +1,12 @@
 import React from "react";
 import Logo from "../resources/logolctip.png";
 
-import { Link } from "react-router-dom";
-
 const LoginContent = () => {
     return( 
         <div className="flex justify-items-center content-center px-6 py-8 mx-auto my-24">
-            <Link to="/">
-                <div className="flex items-center h-[400px] justify-center transition hover:scale-105 duration-200">
-                    <img src={Logo} className="w-1/2" alt="logo" />
-                </div>
-            </Link>
+            <div className="flex items-center h-[400px] justify-center transition hover:scale-105 duration-200">
+                <img src={Logo} className="w-1/2" alt="logo" />
+            </div>
             
             <div className="w-full bg-white rounded-lg max-w-md">
                 <div className="p-6 space-y-4">
@@ -27,7 +23,7 @@ const LoginContent = () => {
                         type="text"
                         name="username"
                         id="username"
-                        className="bg-gray-50 border border-gray-300 text-stone-900 sm:text-sm rounded-lg focus:ring-fuchsia-900 focus:border-fuchsia-900 block w-full p-2.5"
+                        className="bg-gray-50 border border-gray-300 text-stone-900 text-sm rounded-lg hover:border-fuchsia-900 focus:ring-fuchsia-900 focus:border-fuchsia-900 w-full p-2.5"
                         required
                         />
                     </div>
@@ -42,7 +38,7 @@ const LoginContent = () => {
                         type="password"
                         name="password"
                         id="password"
-                        className="bg-gray-50 border border-gray-300 text-stone-900 sm:text-sm rounded-lg focus:ring-fuchsia-900 focus:border-fuchsia-900 block w-full p-2.5"
+                        className="bg-gray-50 border border-gray-300 text-stone-900 text-sm rounded-lg hover:border-fuchsia-900 focus:ring-fuchsia-900 focus:border-fuchsia-900 w-full p-2.5"
                         required
                         />
                     </div>

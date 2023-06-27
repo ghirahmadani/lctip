@@ -57,7 +57,7 @@ const data = [
 
 const QuestionContent = () => {
   return(
-    <div className="container">
+    <div className="lg:container">
       <div className="bg-white border-b my-20">
         <div className="relative isolate">
           <div className="mx-auto max-w-2xl py-36">
@@ -67,7 +67,7 @@ const QuestionContent = () => {
               </div>
             </div>
             <div className="text-center">
-              <h1 className="text-6xl fredoka font-bold text-stone-900">
+              <h1 className="text-[2rem] sm:text-4xl md:text-5xl lg:text-5xl fredoka font-bold text-stone-900">
                 FAQ's
               </h1>
               <div className="mt-10 flex items-center justify-center gap-x-6">
@@ -83,11 +83,11 @@ const QuestionContent = () => {
               data.map((i,key)=> {
                 return(
                   <Accordion.Panel key={key}>
-                  <Accordion.Title className="text-stone-900 hover:text-[#79245B] flex items-center justify-between w-full p-5 text-left border-0 border-b-0 border-stone-200 rounded-none">
+                  <Accordion.Title className="text-stone-900 hover:text-[#79245B] flex items-center text-sm lg:text-base justify-between w-full p-5 text-left border-0 border-b-0 border-stone-200">
                     <div>{i.question}</div>
                   </Accordion.Title>
                   <Accordion.Content>
-                    <p className="mb-2 text-justify text-sm leading-7 text-stone-900 rounded-none">
+                    <p className="mb-2 text-justify text-[0.6rem] lg:text-sm leading-5 lg:leading-7 text-stone-900">
                       {i.answer}       
                     </p>
                   </Accordion.Content>

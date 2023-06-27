@@ -8,8 +8,10 @@ const Main = () => {
     return (
       <>
         {/* <Announcement /> */}
-        <Hero />
-        <Content />
+        <div className="items-center">
+          <Hero />
+          <Content />
+        </div>
       </>
     );
 }
