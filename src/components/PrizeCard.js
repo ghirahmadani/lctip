@@ -11,8 +11,8 @@ const PrizeCard = (props) => {
                         </svg>
                     </div>
                     <h1 className="text-l md:text-xl text-center fredoka font-semibold text-stone-900">{props.title}</h1>
-                    <div className="grid w-full justify-items-center">
-                        <p className="grid text-xl md:text-xl lg:text-[1rem] xl:text-xl font-bold content-center fredoka bg-white border-2 border-gray-100 w-10/12 md:w-full h-12 p-3 rounded-full text-stone-900 transition ease-in-out delay-100 hover:scale-105 hover:shadow-md duration-300">{props.money}</p>
+                    <div className="grid bg-white border-2 border-gray-100 w-10/12 md:w-full h-12 p-3 rounded-full text-stone-900 transition ease-in-out delay-100 hover:shadow-md duration-300 justify-items-center content-center">
+                        <p className="text-xl md:text-xl lg:text-[1rem] xl:text-xl font-bold fredoka">{props.money}</p>
                     </div>
                     <p className="text-xs text-center leading-5 h-32 text-stone-800">
                         {props.prize}

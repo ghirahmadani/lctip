@@ -1,6 +1,5 @@
 import React from "react";
 import Button from "./Button";
-
 const Hero = () => {
   return (
     <div className="bg-white border-b w-full">

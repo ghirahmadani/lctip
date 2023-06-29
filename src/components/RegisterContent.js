@@ -1,8 +1,17 @@
 import React from "react";
-import Button from "./Button";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { DevTool } from "@hookform/devtools";
+
+import Button from "./Button";
 
 const RegisterContent = () => {
+
+
+    const form = useForm();
+
+    const { register, control } = form;
+
     return( 
         <div className="container">
             <div className="bg-white border-b my-20">
@@ -46,32 +55,33 @@ const RegisterContent = () => {
                 </div>
             </div>
             {/* Team */}
+            <form>
             <div className="container w-9/12 mx-auto">
                 <form className="border-b my-10 py-10">
                     <h1 className="text-2xl lg:text-3xl text-left fredoka font-bold text-stone-900 pb-4 mb-8">Data Tim</h1>
                     <div className="mb-6">
                         <label htmlFor="teamName" className="block mb-2 text-sm text-left font-medium text-gray-900">Nama Tim</label>
-                        <input type="text" id="teamName" name="teamName" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="text" id="teamName" {...register("teamName")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="schoolName" className="block mb-2 text-sm text-left font-medium text-gray-900">Nama Sekolah</label>
-                        <input type="text" id="schoolName" name="schoolName" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="text" id="schoolName" {...register("schoolName")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="schoolAddress" className="block mb-2 text-sm text-left font-medium text-gray-900">Alamat Sekolah</label>
-                        <input type="text" id="schoolAddress" name="schoolAddress" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="text" id="schoolAddress" {...register("schoolAddress")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="schoolEmail" className="block mb-2 text-sm text-left font-medium text-gray-900">Email Sekolah</label>
-                        <input type="email" id="schoolEmail" name="schoolEmail" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="email" id="schoolEmail" {...register("schoolEmail")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="schoolNumber" className="block mb-2 text-sm text-left font-medium text-gray-900">Telepon Sekolah</label>
-                        <input type="text" id="schoolNumber" name="schoolNumber" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="text" id="schoolNumber" {...register("schoolNumber")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                     <label htmlFor="schoolRegion" className="block mb-2 text-sm text-left font-medium text-gray-900">Regional Sekolah</label>
-                    <select id="schoolRegion" name="schoolRegion" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required>
+                    <select id="schoolRegion" {...register("schoolRegion")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required>
                         <option value="1">Regional I - Bogor</option>
                         <option value="2">Regional II - DKI Jakarta dan Banten</option>
                         <option value="3">Regional III - Jawa Barat</option>
@@ -88,23 +98,23 @@ const RegisterContent = () => {
                     <h1 className="text-2xl lg:text-3xl text-left fredoka font-bold text-stone-900 pb-4 mb-8">Data Individu Pembimbing</h1>
                     <div className="mb-6">
                         <label htmlFor="mentorName" className="block mb-2 text-sm text-left font-medium text-gray-900">Nama</label>
-                        <input type="text" id="mentorName" name="mentorName" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="text" id="mentorName" {...register("mentorName")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="mentorNIK" className="block mb-2 text-sm text-left font-medium text-gray-900">NIK</label>
-                        <input type="text" id="mentorNIK" name="mentorNIK" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="text" id="mentorNIK" {...register("mentorNIK")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="mentorNumber" className="block mb-2 text-sm text-left font-medium text-gray-900">Nomor Telepon</label>
-                        <input type="text" id="mentorNumber" name="mentorNumber" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="text" id="mentorNumber" {...register("mentorNumber")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="mentorEmail" className="block mb-2 text-sm text-left font-medium text-gray-900">Email</label>
-                        <input type="email" id="mentorEmail" name="mentorEmail" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="email" id="mentorEmail" {...register("mentorEmail")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="mentorPics" className="block mb-2 text-sm text-left font-medium text-gray-900">Foto Formal</label>
-                        <input className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" id="mentorPics" type="file" />
+                        <input  type="file" id="mentorPics" {...register("mentorPics")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp"/>
                         <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500 dark:text-gray-300" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png</div>
                     </div>
                 </form>
@@ -113,36 +123,36 @@ const RegisterContent = () => {
                     <h1 className="text-2xl lg:text-3xl text-left fredoka font-bold text-stone-900 pb-4 mb-8">Data Individu Ketua Tim</h1>
                     <div className="mb-6">
                         <label htmlFor="leadUsername" className="block mb-2 text-sm text-left font-medium text-gray-900">Username</label>
-                        <input type="text" id="leadUsername" name="leadUsername" autoComplete="username" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="text" id="leadUsername" {...register("leadUsername")} autoComplete="username" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="leadPassword" className="block mb-2 text-sm text-left font-medium text-gray-900">Password</label>
-                        <input type="password" id="leadPassword" name="leadPassword" autoComplete="current-password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="password" id="leadPassword" {...register("leadPassword")} autoComplete="current-password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="leadName" className="block mb-2 text-sm text-left font-medium text-gray-900">Name</label>
-                        <input type="text" id="leadName" name="leadName" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="text" id="leadName" {...register("leadName")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="leadNIK" className="block mb-2 text-sm text-left font-medium text-gray-900">NIK</label>
-                        <input type="text" id="leadNIK" name="leadNIK" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="text" id="leadNIK" {...register("leadNIK")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="leadNumber" className="block mb-2 text-sm text-left font-medium text-gray-900">Nomor Telepon</label>
-                        <input type="text" id="leadNumber" name="leadNumber" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="text" id="leadNumber" {...register("leadNumber")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="leadEmail" className="block mb-2 text-sm text-left font-medium text-gray-900">Email</label>
-                        <input type="email" id="leadEmail" name="leadEmail" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="email" id="leadEmail" {...register("leadEmail")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="leadPicsFormal" className="block mb-2 text-sm text-left font-medium text-gray-900">Foto Formal</label>
-                        <input id="leadPicsFormal" name="leadPicsFormal" className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" type="file" />
+                        <input type="file" id="leadPicsFormal" {...register("leadPicsFormal")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp"/>
                         <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png</div>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="leadPicsCard" className="block mb-2 text-sm text-left font-medium text-gray-900">Foto atau Scan dari Kartu Pelajar atau KTP</label>
-                        <input id="leadPicsCard" name="leadPicsCard" className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" type="file" />
+                        <input type="file" id="leadPicsCard" {...register("leadPicsCard")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp"  />
                         <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png .pdf</div>
                     </div>
                 </form>
@@ -151,36 +161,36 @@ const RegisterContent = () => {
                     <h1 className="text-2xl lg:text-3xl text-left fredoka font-bold text-stone-900 pb-4 mb-8">Data Individu Anggota I</h1>
                     <div className="mb-6">
                         <label htmlFor="memberOneUsername" className="block mb-2 text-sm text-left font-medium text-gray-900">Username</label>
-                        <input type="text" id="memberOneUsername" name="memberOneUsername" autoComplete="username" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="text" id="memberOneUsername" {...register("memberOneUsername")} autoComplete="username" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="memberOnePassword" className="block mb-2 text-sm text-left font-medium text-gray-900">Password</label>
-                        <input type="password" id="memberOnePassword" name="memberOnePassword" autoComplete="current-password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="password" id="memberOnePassword" {...register("memberOnePassword")} autoComplete="current-password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="memberOneName" className="block mb-2 text-sm text-left font-medium text-gray-900">Name</label>
-                        <input type="text" id="memberOneName" name="memberOneName" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="text" id="memberOneName" {...register("memberName")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="memberOneNIK" className="block mb-2 text-sm text-left font-medium text-gray-900">NIK</label>
-                        <input type="text" id="memberOneNIK" name="memberOneNIK" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="text" id="memberOneNIK" {...register("memberOneNIK")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="memberOneNumber" className="block mb-2 text-sm text-left font-medium text-gray-900">Nomor Telepon</label>
-                        <input type="text" id="memberOneNumber" name="memberOneNumber" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="text" id="memberOneNumber" {...register("memberOneNumber")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="memberOneEmail" className="block mb-2 text-sm text-left font-medium text-gray-900">Email</label>
-                        <input type="email" id="memberOneEmail" name="memberOneEmail" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="email" id="memberOneEmail" {...register("memberOneEmail")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="memberOnePicsFormal" className="block mb-2 text-sm text-left font-medium text-gray-900">Foto Formal</label>
-                        <input id="memberOnePicsFormal" name="memberOnePicsFormal" className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" type="file" />
+                        <input type="file" id="memberOnePicsFormal" {...register("memberOnePicsFormal")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" />
                         <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png</div>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="memberOnePicsCard" className="block mb-2 text-sm text-left font-medium text-gray-900">Foto atau Scan dari Kartu Pelajar atau KTP</label>
-                        <input id="memberOnePicsCard" name="memberOnePicsCard" className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" type="file" />
+                        <input type="file" id="memberOnePicsCard" {...register("memberOnePicsCard")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" />
                         <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png .pdf</div>
                     </div>
                 </form>
@@ -189,36 +199,36 @@ const RegisterContent = () => {
                     <h1 className="text-2xl lg:text-3xl text-left fredoka font-bold text-stone-900 pb-4 mb-8">Data Individu Anggota II</h1>
                     <div className="mb-6">
                         <label htmlFor="memberTwoUsername" className="block mb-2 text-sm text-left font-medium text-gray-900">Username</label>
-                        <input type="text" id="memberTwoUsername" name="memberTwoUsername" autoComplete="username" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="text" id="memberTwoUsername" {...register("memberTwoUsername")} autoComplete="username" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="memberTwoPassword" className="block mb-2 text-sm text-left font-medium text-gray-900">Password</label>
-                        <input type="password" id="memberTwoPassword" name="memberTwoPassword" autoComplete="current-password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="password" id="memberTwoPassword" {...register("memberTwoPassword")} autoComplete="current-password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="memberOneName" className="block mb-2 text-sm text-left font-medium text-gray-900">Name</label>
-                        <input type="text" id="memberTwoName" name="memberTwoName" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="text" id="memberTwoName" {...register("memberName")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="memberTwoNIK" className="block mb-2 text-sm text-left font-medium text-gray-900">NIK</label>
-                        <input type="text" id="memberTwoNIK" name="memberTwoNIK" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="text" id="memberTwoNIK" {...register("memberTwoNIK")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="memberTwoNumber" className="block mb-2 text-sm text-left font-medium text-gray-900">Nomor Telepon</label>
-                        <input type="text" id="memberTwoNumber" name="memberTwoNumber" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="text" id="memberTwoNumber" {...register("memberTwoNumber")}name="memberTwoNumber" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="memberTwoEmail" className="block mb-2 text-sm text-left font-medium text-gray-900">Email</label>
-                        <input type="email" id="memberTwoEmail" name="memberTwoEmail" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                        <input type="email" id="memberTwoEmail" {...register("memberTwoEmail")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="memberTwoPicsFormal" className="block mb-2 text-sm text-left font-medium text-gray-900">Foto Formal</label>
-                        <input id="memberTwoPicsFormal" name="memberTwoPicsFormal" className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" type="file" />
+                        <input type="file"  id="memberTwoPicsFormal" {...register("memberTwoPicsFormal")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" />
                         <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png</div>
                     </div>
                     <div className="mb-6">
                         <label htmlFor="memberTwoPicsCard" className="block mb-2 text-sm text-left font-medium text-gray-900">Foto atau Scan dari Kartu Pelajar atau KTP</label>
-                        <input id="memberTwoPicsCard" name="memberTwoPicsCard" className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" type="file" />
+                        <input type="file"  id="memberTwoPicsCard" {...register("memberTwoPicsCard")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" />
                         <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png .pdf</div>
                     </div>
                 </form>
@@ -227,23 +237,22 @@ const RegisterContent = () => {
                     <h1 className="text-2xl lg:text-3xl text-left fredoka font-bold text-stone-900 pb-4 mb-8">Data Pendukung</h1>
                     <div className="mb-6">
                             <label htmlFor="paymentPics" className="block mb-2 text-sm text-left font-medium text-gray-900">Bukti Pembayaran</label>
-                            <input id="paymentPics" name="paymentPics" className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" type="file" />
+                            <input type="file"  id="paymentPics" {...register("paymentPics")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" />
                             <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png</div>
                         </div>
                         <div className="mb-6">
                             <label htmlFor="schoolPics" className="block mb-2 text-sm text-left font-medium text-gray-900">Surat Utusan Sekolah</label>
-                            <input id="schoolPics" name="schoolPics" className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" type="file" />
-                            <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png .pdf</div>
+                            <input type="file" id="schoolPics" {...register("schoolPics")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp"/>
                         </div>
                 </form>
                 <fieldset className="mb-10">
                     <div className="flex items-center mb-4">
-                        <input defaultChecked id="checkbox-1" type="checkbox" defaultValue className="w-4 h-4 text-fuchsia-600 bg-gray-100 border-gray-300 rounded-lg focus:ring-fuchsia-400 focus:ring-2" />
+                        <input defaultChecked type="checkbox" id="checkbox-1" {...register("correctCheck")} defaultValue className="w-4 h-4 text-fuchsia-600 bg-gray-100 border-gray-300 rounded-lg focus:ring-fuchsia-400 focus:ring-2" />
                         <label htmlFor="checkbox-1" className="ml-2 text-[0.6rem] lg:text-sm font-medium text-left text-gray-900">dengan menekan tombol ini anda telah setuju bahwa semua data yang dimasukan sudah benar.</label>
                     </div>
 
                     <div className="flex items-center mb-4">
-                        <input id="checkbox-2" type="checkbox" defaultValue className="w-4 h-4 text-fuchsia-600 bg-gray-100 border-gray-300 rounded-lg focus:ring-fuchsia-400 focus:ring-2" />
+                        <input type="checkbox" id="checkbox-2" defaultValue {...register("termCheck")} className="w-4 h-4 text-fuchsia-600 bg-gray-100 border-gray-300 rounded-lg focus:ring-fuchsia-400 focus:ring-2" />
                         <label htmlFor="checkbox-2" className="ml-2 text-[0.6rem] lg:text-sm font-medium text-left text-gray-900">dengan menekan tombol ini anda telah setuju mendaftar sebagai peserta LCTIP XXXI dan mematuhi syarat dan ketentuan yang berlaku.</label>
                     </div>
                     <div className="flex items-start my-20">
@@ -251,6 +260,8 @@ const RegisterContent = () => {
                     </div>
                 </fieldset>
             </div>
+            </form>
+            <DevTool control ={control}/>
         </div>
 
     )
