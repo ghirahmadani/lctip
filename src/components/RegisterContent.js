@@ -1,133 +1,161 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { DevTool } from "@hookform/devtools";
 import axios from 'axios';
-
-import Button from "./Button";
+import Validation from "./Validation";
 
 const RegisterContent = () => {
-    const [isSuccess, setIsScuccess] = useState();
-    const [isError, setIsError] = useState();
-
-    const form = useForm;
-
-    // const formValues = {
-    //     teamName  : "",
-    //     schoolName : "",
-    //     schoolAddress : "",
-    //     schoolEmail : "",
-    //     schoolNumber : "",
-    //     schoolRegion : 0,
-
-    //     mentorName : "",
-    //     mentorNIK : "",
-    //     mentorNumber : "",
-    //     mentorEmail : "",
-    //     mentorPics : "",
-
-    //     leadUsername : "",
-    //     leadPassword : "",
-    //     leadName : "",
-    //     leadNIK : "",
-    //     leadNumber : "",
-    //     leadEmail : "",
-    //     leadPicsFormal : "",
-    //     leadPicsCard : "",
-
-    //     memberOneUsername : "",
-    //     memberOnePassword : "",
-    //     memberOneName : "",
-    //     memberOneNIK : "",
-    //     memberOneNumber : "",
-    //     memberOneEmail : "",
-    //     memberOnePicsFormal : "",
-    //     memberOnePicsCard : "",
-
-    //     memberTwoUsername : "",
-    //     memberTwoPassword : "",
-    //     memberTwoName : "",
-    //     memberTwoNIK : "",
-    //     memberTwoNumber : "",
-    //     memberTwoEmail : "",
-    //     memberTwoPicsFormal : "",
-    //     memberTwoPicsCard : "",
-
-    //     paymentPics: "",
-    //     schoolPics: "",
-    //     termOne: true,
-    //     termTwo: true
-
-    // }
+    const [isSuccess, setIsSuccess] = useState(null);
+    const [isError, setIsError] = useState(null);
+    const [isUsernameOneAvailable, setIsUsernameOneAvailable] = useState(true);
+    const [isUsernameTwoAvailable, setIsUsernameTwoAvailable] = useState(true);
+    const [isUsernameThreeAvailable, setIsUsernameThreeAvailable] = useState(true);
+    const [usernameOne, setUsernameOne] = useState("")
+    const [usernameTwo, setUsernameTwo] = useState("")
+    const [usernameThree, setUsernameThree] = useState("")
 
     const { register, handleSubmit } = useForm();
 
+    useEffect(() => {
+        setIsUsernameOneAvailable(true)
+        setIsUsernameTwoAvailable(true)
+        setIsUsernameThreeAvailable(true)
+    },[register])
+
     const onSubmit = async(data) => {
-        const formRegistration = new FormData();
 
-        
-        console.log(data)
-        await axios
-        .postForm(`${process.env.REACT_APP_REGISTRATION_URL}`, {
-            school_name: data.schoolName,
-            school_address: data.schoolAddress,
-            school_email: data.schoolEmail,
-            school_telp: data.schoolNumber,
-            school_region: data.schoolRegion,
+        if(isUsernameOneAvailable && isUsernameTwoAvailable && isUsernameThreeAvailable){
 
-            mentor_name: data.mentorName,
-            mentor_nip: data.mentorNIK,
-            mentor_telp: data.mentorNumber,
-            mentor_email: data.mentorEmail,
-            mentor_photo: data.mentorPics.files,
+            const form = new FormData();
 
-            username: data.leadUsername,
-            password: data.leadPassword,
-            name: data.leadName,
-            nip: data.leadNIK,
-            handphone: data.leadPhone,
-            email: data.leadEmail,
-            formal_photo: data.leadPicsFormal.files,
-            ktp_photo: data.leadPicsCard.files,
+            form.append('team_name', data.teamName)
+            form.append('school_name', data.schoolName)
+            form.append('school_address', data.schoolAddress)
+            form.append('school_email', data.schoolEmail)
+            form.append('school_telp', data.schoolNumber)
+            
+            form.append('mentor_name', data.mentorName)
+            form.append('mentor_nip', data.mentorNIK)
+            form.append('mentor_telp', data.mentorNumber)
+            form.append('mentor_email', data.mentorEmail)
+            form.append('mentor_photo', data.mentorPics[0])
 
-            username2: data.memberOneUsername,
-            password2: data.memberOnePassword,
-            name2: data.memberOneName,
-            nip2: data.memberOneNIK,
-            handphone2: data.memberOnePhone,
-            email2: data.memberOneEmail,
-            formal_photo2: data.memberOnePicsFormal.files,
-            ktp_photo2: data.memberOnePicsCard.files,
+            form.append('username', data.leadUsername)
+            form.append('password', data.leadPassword)
+            form.append('name', data.leadName)
+            form.append('nip', data.leadNIK)
+            form.append('handphone', data.leadNumber)
+            form.append('email', data.leadEmail)
+            form.append('formal_photo', data.leadPicsFormal[0])
+            form.append('ktp_photo', data.leadPicsCard[0])
 
-            username3: data.memberTwoUsername,
-            password3: data.memberTwoPassword,
-            name3: data.memberTwoName,
-            nip3: data.memberTwoNIK,
-            handphone3: data.memberTwoPhone,
-            email3: data.memberTwoEmail,
-            formal_photo3: data.memberTwoPicsFormal.files,
-            ktp_photo3: data.memberTwoPicsCard.files,
+            form.append('username2', data.memberOneUsername)
+            form.append('password2', data.memberOnePassword)
+            form.append('name2', data.memberOneName)
+            form.append('nip2', data.memberOneNIK)
+            form.append('handphone2', data.memberOneNumber)
+            form.append('email2', data.memberOneEmail)
+            form.append('formal_photo2', data.memberOnePicsFormal[0])
+            form.append('ktp_photo2', data.memberOnePicsCard[0])
 
-            term1: data.correctCheck,
-            term2: data.termCheck
-        },
-        {
-            headers: {
-              'Content-Type': 'multipart/form-data',
-              'Access-Control-Allow-Origin': '*',
-              'Access-Control-Allow-Headers':'X-Requested-With, Content-Type, Origin, Accept, Authorization'
-            },
-        })
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+            form.append('username3', data.memberTwoUsername)
+            form.append('password3', data.memberTwoPassword)
+            form.append('name3', data.memberTwoName)
+            form.append('nip3', data.memberTwoNIK)
+            form.append('handphone3', data.memberTwoNumber)
+            form.append('email3', data.memberTwoEmail)
+            form.append('formal_photo3', data.memberTwoPicsFormal[0])
+            form.append('ktp_photo3', data.memberTwoPicsCard[0])
+
+            form.append('payment_proof', data.paymentPics[0])
+            form.append('mesengger_letter', data.schoolPics[0])
+
+            form.append('term1', data.correctCheck)
+            form.append('term2', data.termCheck)
+
+            // for (let [key, value] of form) {
+            //     console.log(`${key}: ${value}`)
+            // }
+
+            await axios
+            .post(`${process.env.REACT_APP_REGISTRATION_URL}/registration`, form,
+            {
+                headers: {
+                'Content-Type': 'multipart/form-data'
+                },
+            })
+            .then((res) => {
+                setIsError(null)
+                setUsernameOne("")
+                setUsernameTwo("")
+                setUsernameThree("")
+                setIsSuccess(res.data.message)
+            })
+            .catch(error => {
+                setIsSuccess(null)
+                setIsError(error.message)
+            });
+        }
+        else{
+            setIsError("Registrasi Gagal Username Salah")
+        }
     }
 
     return( 
         <div className="container">
+            {
+                isSuccess && 
+                    <div className="relative">        
+                        <div className="fixed inset-x-0 mx-auto top-[150px] w-10/12 rounded-lg bg-[#499e86] text-white px-4 py-3 z-10" role="alert">
+                            <span className="block sm:inline">
+                                {isSuccess}
+                            </span>
+                            <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
+                                <svg
+                                onClick={() => setIsSuccess(null)}
+                                className="fill-current h-6 w-6 text-white"
+                                role="button"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                >
+                                <title>Close</title>
+                                <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+            }
+            {
+                isError && 
+                    <div className="relative">        
+                        <div className="fixed inset-x-0 mx-auto top-[150px] w-10/12 rounded-lg bg-red-700 text-white px-4 py-3 z-20" role="alert">
+                            <span className="block sm:inline">
+                                {isError}
+                            </span>
+                            <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
+                                <svg
+                                onClick={() => setIsError(null)}
+                                className="fill-current h-6 w-6 text-white"
+                                role="button"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                >
+                                <title>Close</title>
+                                <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+            }
+            {!isUsernameOneAvailable || !isUsernameTwoAvailable || !isUsernameThreeAvailable?
+                <div className="relative">        
+                    <div className="fixed inset-x-0 mx-auto top-[150px] w-10/12 rounded-lg bg-red-700 text-white px-4 py-3 z-10">
+                        <span className="block sm:inline">
+                            Username sudah digunakan!
+                        </span>
+                    </div>
+                </div>:<></>
+            }
             <div className="bg-white border-b my-20">
                 <div className="relative isolate">
                     <div className="mx-auto max-w-2xl py-36">
@@ -168,8 +196,8 @@ const RegisterContent = () => {
                     </div>
                 </div>
             </div>
-            {/* Team */}
             <form onSubmit={handleSubmit(onSubmit)}>
+                {/* Team */}
                 <div className="container w-9/12 mx-auto">
                     <div className="border-b my-10 py-10">
                         <h1 className="text-2xl lg:text-3xl text-left fredoka font-bold text-stone-900 pb-4 mb-8">Data Tim</h1>
@@ -192,19 +220,6 @@ const RegisterContent = () => {
                         <div className="mb-6">
                             <label htmlFor="schoolNumber" className="block mb-2 text-sm text-left font-medium text-gray-900">Telepon Sekolah</label>
                             <input type="text" id="schoolNumber" {...register("schoolNumber")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
-                        </div>
-                        <div className="mb-6">
-                        <label htmlFor="schoolRegion" className="block mb-2 text-sm text-left font-medium text-gray-900">Regional Sekolah</label>
-                        <select id="schoolRegion" {...register("schoolRegion")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required>
-                            <option value="1">Regional I - Bogor</option>
-                            <option value="2">Regional II - DKI Jakarta dan Banten</option>
-                            <option value="3">Regional III - Jawa Barat</option>
-                            <option value="4">Regional IV - Lampung, Sumatera Selatan, Bengkulu, dan Bangka Belitung</option>
-                            <option value="5">Regional V - NAD, Sumatera Utara dan Barat, Riau, dan Kepulauan Riau</option>
-                            <option value="6">Regional VI - Jawa Tengah dan DI Yogyakarta</option>
-                            <option value="7">Regional VII - Jawa Timur, Bali, NTB, dan NTT</option>
-                            <option value="8">Regional VIII - Kalimantan, Sulawesi, Maluku, dan Papua</option>
-                        </select>
                         </div>
                     </div>
                     {/* Mentor */}
@@ -229,7 +244,7 @@ const RegisterContent = () => {
                         <div className="mb-6">
                             <label htmlFor="mentorPics" className="block mb-2 text-sm text-left font-medium text-gray-900">Foto Formal</label>
                             <input  type="file" id="mentorPics" {...register("mentorPics")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp"/>
-                            <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500 dark:text-gray-300" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png</div>
+                            <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500 dark:text-gray-300" id="mentorPicsHelp">*Maks. Ukuran 3 MB dan Format Upload .jpg, .png</div>
                         </div>
                     </div>
                     {/* Leader */}
@@ -237,7 +252,8 @@ const RegisterContent = () => {
                         <h1 className="text-2xl lg:text-3xl text-left fredoka font-bold text-stone-900 pb-4 mb-8">Data Individu Ketua Tim</h1>
                         <div className="mb-6">
                             <label htmlFor="leadUsername" className="block mb-2 text-sm text-left font-medium text-gray-900">Username</label>
-                            <input type="text" id="leadUsername" {...register("leadUsername")} autoComplete="username" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                            <input type="text" id="leadUsername" {...register("leadUsername")} value={usernameOne} onChange={(event) => setUsernameOne(event.target.value)} autoComplete="username" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                            <Validation username={usernameOne} handleValidation={(status) => setIsUsernameOneAvailable(status)}/>
                         </div>
                         <div className="mb-6">
                             <label htmlFor="leadPassword" className="block mb-2 text-sm text-left font-medium text-gray-900">Password</label>
@@ -261,13 +277,13 @@ const RegisterContent = () => {
                         </div>
                         <div className="mb-6">
                             <label htmlFor="leadPicsFormal" className="block mb-2 text-sm text-left font-medium text-gray-900">Foto Formal</label>
-                            <input type="file" id="leadPicsFormal" {...register("leadPicsFormal")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp"/>
-                            <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png</div>
+                            <input type="file" id="leadPicsFormal" {...register("leadPicsFormal")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="leadPicsHelp"/>
+                            <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="leadPicsHelp">*Maks. Ukuran 3 MB dan Format Upload .jpg, .png</div>
                         </div>
                         <div className="mb-6">
                             <label htmlFor="leadPicsCard" className="block mb-2 text-sm text-left font-medium text-gray-900">Foto atau Scan dari Kartu Pelajar atau KTP</label>
-                            <input type="file" id="leadPicsCard" {...register("leadPicsCard")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp"  />
-                            <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png .pdf</div>
+                            <input type="file" id="leadPicsCard" {...register("leadPicsCard")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="leadPicsHelp"  />
+                            <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="leadPicsHelp">*Maks. Ukuran 3 MB dan Format Upload .jpg, .png .pdf</div>
                         </div>
                     </div>
                     {/* Member 1 */}
@@ -275,7 +291,8 @@ const RegisterContent = () => {
                         <h1 className="text-2xl lg:text-3xl text-left fredoka font-bold text-stone-900 pb-4 mb-8">Data Individu Anggota I</h1>
                         <div className="mb-6">
                             <label htmlFor="memberOneUsername" className="block mb-2 text-sm text-left font-medium text-gray-900">Username</label>
-                            <input type="text" id="memberOneUsername" {...register("memberOneUsername")} autoComplete="username" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                            <input type="text" id="memberOneUsername" {...register("memberOneUsername")} value={usernameTwo} onChange={(event) => setUsernameTwo(event.target.value)} autoComplete="username" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                            <Validation username={usernameTwo} handleValidation={(status) => setIsUsernameTwoAvailable(status)}/>
                         </div>
                         <div className="mb-6">
                             <label htmlFor="memberOnePassword" className="block mb-2 text-sm text-left font-medium text-gray-900">Password</label>
@@ -283,7 +300,7 @@ const RegisterContent = () => {
                         </div>
                         <div className="mb-6">
                             <label htmlFor="memberOneName" className="block mb-2 text-sm text-left font-medium text-gray-900">Name</label>
-                            <input type="text" id="memberOneName" {...register("memberName")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                            <input type="text" id="memberOneName" {...register("memberOneName")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                         </div>
                         <div className="mb-6">
                             <label htmlFor="memberOneNIK" className="block mb-2 text-sm text-left font-medium text-gray-900">NIK</label>
@@ -299,13 +316,13 @@ const RegisterContent = () => {
                         </div>
                         <div className="mb-6">
                             <label htmlFor="memberOnePicsFormal" className="block mb-2 text-sm text-left font-medium text-gray-900">Foto Formal</label>
-                            <input type="file" id="memberOnePicsFormal" {...register("memberOnePicsFormal")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" />
-                            <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png</div>
+                            <input type="file" id="memberOnePicsFormal" {...register("memberOnePicsFormal")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="memberOnePicsHelp" />
+                            <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="memberOnePicsHelp">*Maks. Ukuran 3 MB dan Format Upload .jpg, .png</div>
                         </div>
                         <div className="mb-6">
                             <label htmlFor="memberOnePicsCard" className="block mb-2 text-sm text-left font-medium text-gray-900">Foto atau Scan dari Kartu Pelajar atau KTP</label>
-                            <input type="file" id="memberOnePicsCard" {...register("memberOnePicsCard")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" />
-                            <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png .pdf</div>
+                            <input type="file" id="memberOnePicsCard" {...register("memberOnePicsCard")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="memberOnePicsHelp" />
+                            <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="memberOnePicsHelp">*Maks. Ukuran 3 MB dan Format Upload .jpg, .png .pdf</div>
                         </div>
                     </div>
                     {/* Member 2 */}
@@ -313,7 +330,8 @@ const RegisterContent = () => {
                         <h1 className="text-2xl lg:text-3xl text-left fredoka font-bold text-stone-900 pb-4 mb-8">Data Individu Anggota II</h1>
                         <div className="mb-6">
                             <label htmlFor="memberTwoUsername" className="block mb-2 text-sm text-left font-medium text-gray-900">Username</label>
-                            <input type="text" id="memberTwoUsername" {...register("memberTwoUsername")} autoComplete="username" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                            <input type="text" id="memberTwoUsername" {...register("memberTwoUsername")} value={usernameThree} onChange={(event) => setUsernameThree(event.target.value)}  autoComplete="username" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                            <Validation username={usernameThree} handleValidation={(status) => setIsUsernameThreeAvailable(status)}/>
                         </div>
                         <div className="mb-6">
                             <label htmlFor="memberTwoPassword" className="block mb-2 text-sm text-left font-medium text-gray-900">Password</label>
@@ -321,7 +339,7 @@ const RegisterContent = () => {
                         </div>
                         <div className="mb-6">
                             <label htmlFor="memberOneName" className="block mb-2 text-sm text-left font-medium text-gray-900">Name</label>
-                            <input type="text" id="memberTwoName" {...register("memberName")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
+                            <input type="text" id="memberTwoName" {...register("memberTwoName")} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 block w-full p-2.5" required/>
                         </div>
                         <div className="mb-6">
                             <label htmlFor="memberTwoNIK" className="block mb-2 text-sm text-left font-medium text-gray-900">NIK</label>
@@ -337,13 +355,13 @@ const RegisterContent = () => {
                         </div>
                         <div className="mb-6">
                             <label htmlFor="memberTwoPicsFormal" className="block mb-2 text-sm text-left font-medium text-gray-900">Foto Formal</label>
-                            <input type="file"  id="memberTwoPicsFormal" {...register("memberTwoPicsFormal")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" />
-                            <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png</div>
+                            <input type="file"  id="memberTwoPicsFormal" {...register("memberTwoPicsFormal")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="memberTwoPicsHelp" />
+                            <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="memberTwoPicsHelp">*Maks. Ukuran 3 MB dan Format Upload .jpg, .png</div>
                         </div>
                         <div className="mb-6">
                             <label htmlFor="memberTwoPicsCard" className="block mb-2 text-sm text-left font-medium text-gray-900">Foto atau Scan dari Kartu Pelajar atau KTP</label>
-                            <input type="file"  id="memberTwoPicsCard" {...register("memberTwoPicsCard")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" />
-                            <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png .pdf</div>
+                            <input type="file"  id="memberTwoPicsCard" {...register("memberTwoPicsCard")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="memberTwoPicsHelp" />
+                            <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="memberTwoPicsHelp">*Maks. Ukuran 3 MB dan Format Upload .jpg, .png .pdf</div>
                         </div>
                     </div>
                     {/* Other */}
@@ -351,12 +369,13 @@ const RegisterContent = () => {
                         <h1 className="text-2xl lg:text-3xl text-left fredoka font-bold text-stone-900 pb-4 mb-8">Data Pendukung</h1>
                         <div className="mb-6">
                             <label htmlFor="paymentPics" className="block mb-2 text-sm text-left font-medium text-gray-900">Bukti Pembayaran</label>
-                            <input type="file"  id="paymentPics" {...register("paymentPics")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp" />
-                            <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="mentorPicsHelp">*Maks. Ukuran 15 MB dan Format Upload .jpg, .png</div>
+                            <input type="file"  id="paymentPics" {...register("paymentPics")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="paymentPicsHelp" />
+                            <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="paymentPicsHelp">*Maks. Ukuran 3 MB dan Format Upload .jpg, .png</div>
                         </div>
                         <div className="mb-6">
                             <label htmlFor="schoolPics" className="block mb-2 text-sm text-left font-medium text-gray-900">Surat Utusan Sekolah</label>
-                            <input type="file" id="schoolPics" {...register("schoolPics")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="mentorPicsHelp"/>
+                            <input type="file" id="schoolPics" {...register("schoolPics")} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-fuchsia-400 focus:ring-3 focus:border-gray-200 focus:outline-none" aria-describedby="letterPicsHelp"/>
+                            <div className="mt-2 text-[0.6rem] lg:text-sm text-left text-gray-500" id="paymentPicsHelp">*Maks. Ukuran 3 MB dan Format Upload .jpg, .png .pdf</div>
                         </div>
                         <fieldset className="mb-10">
                             <div className="flex items-center mb-4">
@@ -368,10 +387,10 @@ const RegisterContent = () => {
                                 <input type="checkbox" id="checkbox-2" defaultValue {...register("termCheck")} className="w-4 h-4 text-fuchsia-600 bg-gray-100 border-gray-300 rounded-lg focus:ring-fuchsia-400 focus:ring-2" />
                                 <label htmlFor="checkbox-2" className="ml-2 text-[0.6rem] lg:text-sm font-medium text-left text-gray-900">dengan menekan tombol ini anda telah setuju mendaftar sebagai peserta LCTIP XXXI dan mematuhi syarat dan ketentuan yang berlaku.</label>
                             </div>
-                            <div className="flex items-start my-20">
-                                <button type="submit" name="Submit" className="border p-4 rounded-lg">Submit</button>
-                            </div>
                         </fieldset>
+                    </div>
+                    <div className="flex items-start my-20">
+                        <button type="submit" name="Submit" className="border p-4 px-10 rounded-lg border-[#79245B] text-[#79245B] hover:bg-[#79245B] hover:text-white">Submit</button>
                     </div>
                 </div>
             </form>
