@@ -163,7 +163,7 @@ const Content = () => {
                                 <p className="border-b border-dotted w-full"></p>
                             </div>
                             <div className="ml-2 md:ml-4">
-                                <p className="text-[0.6rem] md:text-base text-right text-white">28 Oktober 2023</p>
+                                <p className="text-[0.6rem] md:text-base text-right text-white">27 Oktober 2023 ( 18.00 - 23.59 )</p>
                             </div>
                         </div>
                         <div className="flex items-center justify-between">

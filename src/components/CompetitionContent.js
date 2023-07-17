@@ -106,7 +106,7 @@ const CompetitionContent = () => {
                                 <p className="border-b border-dotted w-full"></p>
                             </div>
                             <div className="ml-2 md:ml-4">
-                                <p className="text-[0.6rem] md:text-base text-right text-white">28 Oktober 2023</p>
+                                <p className="text-[0.6rem] md:text-base text-right text-white">27 Oktober 2023 ( 18.00 - 23.59 )</p>
                             </div>
                         </div>
                         <div className="flex items-center justify-between">
@@ -204,7 +204,7 @@ const CompetitionContent = () => {
                     <div className="flex items-center justify-center bg-pink-50 rounded-xl py-5 px-8">
                         <p className="text-[0.6rem] sm:text-sm lg:text-md text-left leading-7 lg:leading-9 mr-10 text-stone-900">
                             Informasi lebih lanjut terdapat di Guidebook LCTIP XXXI <br></br>yang dapat diakses pada link berikut: { } 
-                            <a href="ipb.link/guidebook" className="font-bold hover:underline">Guidebook</a>
+                            <a href="https://ipb.link/guidebook-lctip-xxxi" className="font-bold hover:underline">Guidebook</a>
                         </p>
 
                         <div className="p-5 w-32 h-32 auto mx-auto rounded-lg flex items-center bg-white">
