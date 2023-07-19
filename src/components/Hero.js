@@ -1,10 +1,19 @@
 import React from "react";
 import Button from "./Button";
+import Fraga from "../assets/Fraga.png" 
+
 const Hero = () => {
   return (
     <div className="bg-white border-b w-full">
-      <div className="isolate">
-        <div className="mx-auto pt-36 pb-12 md:py-48">
+      <div className="justify-center items-center">
+        <div className="flex mx-auto pt-36 pb-12 md:py-48 order-2 items-center justify-center">
+          <div className="hidden lg:flex order-1">
+              <img src={Fraga} alt="Mascot Fraga" className="h-48 w-48"></img>
+          </div>
+          <div className="hidden lg:flex order-3">
+              <img src={Fraga} alt="Mascot Fraga" className="h-48 w-48"></img>
+          </div>
+          <div className="order-2">
           <div className="mb-8 flex justify-center">
             <div className="relative rounded-full px-3 py-1 w-36 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
               HIMITEPA IPB
@@ -25,6 +34,7 @@ const Hero = () => {
             <div className="mt-8 md:mt-10 flex items-center justify-center gap-x-6">
               <Button name="Register" link="/registration"/>
             </div>
+          </div>
           </div>
         </div>
       </div>

@@ -2,6 +2,8 @@ import Button from "./Button";
 import Sponsors from "./Sponsors";
 import { Accordion } from 'flowbite-react';
 
+import Mincy from '../assets/Mincy.png'
+
 const data = [
   {
     id: 1,
@@ -60,7 +62,14 @@ const QuestionContent = () => {
     <div className="lg:container">
       <div className="bg-white border-b my-20">
         <div className="relative isolate">
-          <div className="mx-auto max-w-2xl py-36">
+          <div className="flex mx-auto max-w-3xl py-36 justify-center gap-6">
+            <div className="hidden md:flex order-1">
+              <img src={Mincy} alt="Mascot Fraga" className="h-48 w-48"></img>
+            </div>
+            <div className="hidden md:flex order-3">
+              <img src={Mincy} alt="Mascot Fraga" className="h-48 w-48 -scale-x-100"></img>
+            </div>
+            <div className="order-2">
             <div className="mb-6 flex justify-center">
               <div className="relative rounded-full px-3 py-1 w-36 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                 LCTIP XXXI
@@ -74,6 +83,7 @@ const QuestionContent = () => {
                 <Button name="Contact Us" link="https://wa.me/083807840380/" />
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>
